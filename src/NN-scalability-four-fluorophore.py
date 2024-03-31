@@ -75,9 +75,9 @@ dyes = ['ATTO425', 'FAM', 'ATTO550', 'Cy5']
 outputs_dir = os.path.join('outputs')
 if not os.path.exists(outputs_dir):
     os.makedirs(outputs_dir)
-writer_predictions = pd.ExcelWriter('NN-scalability-four-fluorophore-predictions.xlsx', engine='openpyxl')
-writer_mae_mse = pd.ExcelWriter('NN-scalability-four-fluorophore-concentrationWise_MAE&MSE.xlsx', engine='openpyxl')
-writer_residuals = pd.ExcelWriter('NN-scalability-four-fluorophore-histogramOfResiduals.xlsx', engine='openpyxl')
+writer_predictions = pd.ExcelWriter(outputs_dir, 'NN-scalability-four-fluorophore-predictions.xlsx', engine='openpyxl')
+writer_mae_mse = pd.ExcelWriter(outputs_dir, 'NN-scalability-four-fluorophore-concentrationWise_MAE&MSE.xlsx', engine='openpyxl')
+writer_residuals = pd.ExcelWriter(outputs_dir, 'NN-scalability-four-fluorophore-histogramOfResiduals.xlsx', engine='openpyxl')
 
 for i, dye in enumerate(dyes):
     actual_values = actual_concentrations_test[:, i]
