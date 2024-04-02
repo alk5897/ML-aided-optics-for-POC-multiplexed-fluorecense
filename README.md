@@ -44,6 +44,7 @@ To install them, navigate to the project directory in your command prompt or ter
 
 ## Files and folders
 The repository is distributed into multiple sub folders such as:
+
 	1. datasets
 		Contains excel fiels of the calibration data  
 	2. models
@@ -59,13 +60,13 @@ The repository is distributed into multiple sub folders such as:
 		B. Section 3.4 of the manuscript:
 			NN-scalability-two-fluorophore.py
 			NN-scalability-three-fluorophore.py
-			NN-scalability-four-fluorophore.py
-	For steps to execute these codes please refere to Usage section.
+			NN-scalability-four-fluorophore.py```
+For steps to execute these codes please refer to Usage section.
 
 ## Usage
 Below is a an example of running a code within this repository.
-	With the virtual environment activated, and run the script.
-		'python src/NN-train-and-eval.py`
+	With the virtual environment activated, and run the script in the terminal.
+		`python src/NN-train-and-eval.py`
 
 All scripts have been written to load the appropriate data files contained in the 'datasets' folder. 
 Similarly, the trained models and corresponding data scalers are saved to the 'models' and the evaluation outputs in the form of excel files and figures are saved to the 'outputs' folder.
