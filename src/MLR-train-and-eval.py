@@ -137,9 +137,11 @@ for_export_FAM = np.concatenate((test_xConc.FAM.to_numpy()[:, np.newaxis], teste
                                 axis=1)
 residuals = for_export_FAM[:, 0] - for_export_FAM[:, 1]
 dfFAM = pd.DataFrame({
-    'Actual Values': for_export_FAM[:, 0],
-    'Predicted Values': for_export_FAM[:, 1],
-    'Residuals': residuals
+    'Actual FAM': test_xConc.FAM,
+    'Actual ATTO550': test_xConc.ATTO550,  # Include actual ATTO550 values
+    'Actual CY5': test_xConc.Cy5,          # Include actual CY5 values
+    'Predicted FAM': tested.iloc[:, 0],
+    'Residuals': test_xConc.FAM - tested.iloc[:, 0]
 })
 dfFAM.to_excel(writer_predictions, sheet_name='FAM', index=False)
 
@@ -151,9 +153,11 @@ for_export_ATTO550 = np.concatenate(
     (test_xConc.ATTO550.to_numpy()[:, np.newaxis], tested.iloc[:, 1].to_numpy()[:, np.newaxis]), axis=1)
 residuals = for_export_ATTO550[:, 0] - for_export_ATTO550[:, 1]
 dfATTO = pd.DataFrame({
-    'Actual Values': for_export_FAM[:, 0],
-    'Predicted Values': for_export_FAM[:, 1],
-    'Residuals': residuals
+    'Actual FAM': test_xConc.FAM,  # Include actual FAM values
+    'Actual ATTO550': test_xConc.ATTO550,
+    'Actual CY5': test_xConc.Cy5,  # Include actual CY5 values
+    'Predicted ATTO550': tested.iloc[:, 1],
+    'Residuals': test_xConc.ATTO550 - tested.iloc[:, 1]
 })
 dfATTO.to_excel(writer_predictions, sheet_name='ATTO550', index=False)
 
@@ -165,9 +169,11 @@ for_export_Cy5 = np.concatenate((test_xConc.Cy5.to_numpy()[:, np.newaxis], teste
                                 axis=1)
 residuals = for_export_Cy5[:, 0] - for_export_Cy5[:, 1]
 dfCY5 = pd.DataFrame({
-    'Actual Values': for_export_FAM[:, 0],
-    'Predicted Values': for_export_FAM[:, 1],
-    'Residuals': residuals
+    'Actual FAM': test_xConc.FAM,          # Include actual FAM values
+    'Actual ATTO550': test_xConc.ATTO550,  # Include actual ATTO550 values
+    'Actual CY5': test_xConc.Cy5,
+    'Predicted CY5': tested.iloc[:, 2],
+    'Residuals': test_xConc.Cy5 - tested.iloc[:, 2]
 })
 dfCY5.to_excel(writer_predictions, sheet_name='CY5', index=False)
 
